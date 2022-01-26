@@ -1,0 +1,55 @@
+﻿@{
+    var date = DateTime.Now.ToString("yyyy/m/d");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - moment1_2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/moment1_2.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+            <div class="header_container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><img alt="logo" class="logo" src="~/logotype.png"></a>
+                <p class="date_keeper">Dagens datum är: @date</p>
+            </div>
+    </header>
+            <nav>
+                <div class="menu">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Razor">Razor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/about">Om sidan</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <span class="ham-bar"></span>
+                    <span class="ham-bar"></span>
+                    <span class="ham-bar"></span>
+                </div>
+            </nav>
+        <main>
+            @RenderBody()
+        </main>
+
+    <footer>
+            &copy; 2022 - Felicia Gillström. Kontakta mig på <a href=mailto:fegi2000@student.miun.se>fegi2000@student.miun.se</a>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

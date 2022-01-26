@@ -1,0 +1,33 @@
+﻿@page
+@model moment1_2.Pages.razorModel
+@{
+    ViewData["Title"] = "Razor";
+    var date = DateTime.Now;
+    string[] courses = { "DT057G, Webbutveckling I", "DT093G, Webbutveckling II", "DT173G, Webbutveckling III" };
+    var day = DateTime.Now.DayOfWeek;
+}
+<div class="textcenter">
+    <h2>Lite information med hjälp av Razor</h2>
+        <p>Idag är det @date</p>
+
+            @if(day == DayOfWeek.Monday)
+    {
+        <p>Idag är det måndag</p>
+    }
+    else
+    {
+        <p>Idag är det inte måndag</p>
+    }
+
+
+        <h3>Några kurser ja läst, men inte alla</h3>
+
+
+            <ul class="courses">
+            @foreach(var course in courses)
+            {
+                <li>@course</li>
+            }
+            </ul>
+</div>
+ 
